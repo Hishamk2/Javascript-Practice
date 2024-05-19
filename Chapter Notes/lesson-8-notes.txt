@@ -1,0 +1,37 @@
+Can add new properties to an object by using dot notation
+
+const product = 
+{
+  name: 'socks'
+  price: 1090
+};
+product.newProperty = true;
+
+now
+products =
+{
+  name: 'socks'
+  price: 1090
+  newProperty = true
+}
+
+can delete
+delete product.newProperty
+
+Use product1['delivery-time'] instead of product.deliver-time because the dot notation would not work
+
+JSON.stringify(JS object)
+JSON.parse(json)
+
+JS objects store by references 
+
+Even if use const for object, can change the properties of the object
+This is because the reference to the object is constant, not the object itself
+
+const object = {message: 'Hello', number: 1};
+const message = object.message;
+const {message} = object;
+const {message, number} = object;
+console.log(message); // Hello
+console.log(number); // 1
+// both are the same (called destructuring)

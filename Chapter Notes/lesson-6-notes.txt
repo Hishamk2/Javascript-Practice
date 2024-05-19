@@ -1,0 +1,33 @@
+== convert both data being compared to the same type then checks
+so 5 == '5.00' returns true
+THAT'S WHY USE === (similar to how Java does it)
+Same for != (use !==)
+
+Falsy values:
+false
+0
+''
+NaN
+undefined
+null
+
+let var1;
+var is undefined (not null)
+
+condition && console.log('message')
+is same as 
+if (condition)
+{
+  console.log('hello')
+}
+
+const currency = condition || 'USD'
+is same as below
+let currency;
+if (!condition)
+{
+  currency = 'USD
+}
+
+so use || for when want to do if not condition
+and use && for when want to do if condition

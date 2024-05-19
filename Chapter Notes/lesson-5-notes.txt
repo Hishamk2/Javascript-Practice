@@ -1,0 +1,5 @@
+let, var, const
+^^ Ways to declare a variable
+Use const until need to change the variable
+Don't use var because it's scope is wacky (scope covers the whole function in which it was decalred, no concept of block scope)
+

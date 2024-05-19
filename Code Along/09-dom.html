@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM</title>
+  </head>
+  <body>
+    <button>hello</button>
+    <button class="js-button">Second hello</button>
+
+    <script>
+      console.log(document.querySelector('button').innerHTML)
+      document.querySelector('button')
+        .innerHTML = 'CHANGED'
+
+      document.querySelector('.js-button')
+        .innerHTML = 'CHANGED AGAIN'
+    </script>
+  </body>
+</html>
