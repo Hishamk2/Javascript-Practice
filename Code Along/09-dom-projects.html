@@ -9,12 +9,48 @@
     subscribe()
     " class="js-subscribe-button">Subscribe</button>
 
-<!-- 
+ 
   <br>
-  Rock Paper Scissors
-  <a href="https://supersimple.dev/projects/dom-rock-paper-scissors">Click Here</a> -->
-  
+  <br>
+  <p>Rock Paper Scissors</p>
+  <a href="https://supersimple.dev/projects/dom-rock-paper-scissors">Click Here</a>
+
+  <br>
+  <br>
+  <p>Amaon Shipping Container</p>
+  <p>Order under $40 = +$10 shipping.</p>
+  <p>Order over $40 = Free shipping.</p>
+  <input class="js-cost-input" placeholder="Cost of order" onkeydown="
+  handleCostKeyDown(event)
+  ">
+  <button onclick="
+  calulateTotal()
+  ">Calculate</button>
+  <p class="js-total-cost"></p>
+
   <script>
+    
+
+    function handleCostKeyDown(event) {
+      if (event.key === 'Enter') {
+        calulateTotal()
+      }
+    }
+
+    function calulateTotal()
+    {
+      const inputElement = document.querySelector('.js-cost-input');
+      const orderCost = inputElement.value;
+
+      if (orderCost < 40) {
+        totalCost = parseInt(orderCost) + 10;
+      } else {
+        totalCost = orderCost;
+      }
+      document.querySelector('.js-total-cost').innerHTML = 'Total cost: $' + totalCost;
+    
+    }
+
       let buttonText = document.querySelector('button').innerHTML;
       function subscribe()
       {

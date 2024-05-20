@@ -17,32 +17,29 @@
       playGame('scissors');
     ">Scissors</button>
 
-    <p class="js-results"></p>
+    <p class="js-result"></p>
+    <p class="js-moves"></p>
+    <p class="js-score"></p>
 
-    <p class="js-scoreboard"></p>
-
-    
     <button onclick="
-    score.playerWins = 0;
-    score.playerLosses = 0;
-    score.ties = 0;
-    localStorage.removeItem('score');
-    updateScoreElement();
-    ">Reset score</button>
-
+      score.wins = 0;
+      score.losses = 0;
+      score.ties = 0;
+      localStorage.removeItem('score');
+      updateScoreElement();
+    ">Reset Score</button>
 
     <script>
-      const score = JSON.parse(localStorage.getItem('score')) || {
-        playerWins: 0,
-        playerLosses: 0,
+      let score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0,
         ties: 0
       };
 
       updateScoreElement();
 
-      
-      function playGame(playerMove) 
-      {
+
+      function playGame(playerMove) {
         const computerMove = pickComputerMove();
 
         let result = '';
@@ -55,6 +52,7 @@
           } else if (computerMove === 'scissors') {
             result = 'Tie.';
           }
+
         } else if (playerMove === 'paper') {
           if (computerMove === 'rock') {
             result = 'You win.';
@@ -62,7 +60,8 @@
             result = 'Tie.';
           } else if (computerMove === 'scissors') {
             result = 'You lose.';
-          }          
+          }
+          
         } else if (playerMove === 'rock') {
           if (computerMove === 'rock') {
             result = 'Tie.';
@@ -74,31 +73,28 @@
         }
 
         if (result === 'You win.') {
-          score.playerWins++;
+          score.wins += 1;
         } else if (result === 'You lose.') {
-          score.playerLosses++;
+          score.losses += 1;
         } else if (result === 'Tie.') {
-          score.ties++;
+          score.ties += 1;
         }
 
-        document.querySelector('.js-results')
-          .innerHTML = `You ${results}`;
-
         localStorage.setItem('score', JSON.stringify(score));
-        
+
         updateScoreElement();
-        
-        alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}\n Wins: ${score.playerWins}, Losses: ${score.playerLosses}, Ties: ${score.ties}`);
+
+        document.querySelector('.js-result').innerHTML = result;
+
+        document.querySelector('.js-moves').innerHTML = `You ${playerMove} - ${computerMove} Computer`;
       }
 
-      function updateScoreElement() 
-      {
-        document.querySelector('.js-scoreboard')
-          .innerHTML = `Wins: ${score.playerWins}, Losses: ${score.playerLosses}, Ties: ${score.ties}`;
+      function updateScoreElement() {
+        document.querySelector('.js-score')
+          .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
       }
-      
-      function pickComputerMove() 
-      {
+
+      function pickComputerMove() {
         const randomNumber = Math.random();
 
         let computerMove = '';

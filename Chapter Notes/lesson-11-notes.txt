@@ -1,0 +1,6 @@
+myArray.push(value) // adds value to the end of the array
+myArray.splice(index, times) // removes 'times' number of elements starting at 'index'
+myArray.slice() // returns a deep copy of the array
+
+destructuring for arrays
+const [a, b] = [1, 2, 3] // a = 1, b = 2

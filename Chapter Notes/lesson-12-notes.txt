@@ -1,0 +1,4 @@
+const function1 = function greeting() {
+    console.log('Hello, World!');
+}
+console.log(function1); // outputs 'Hello, World!'
